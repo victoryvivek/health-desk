@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "528402663021",
+    "firebase_url": "https://healthdesk-ec23b.firebaseio.com",
+    "project_id": "healthdesk-ec23b",
+    "storage_bucket": "healthdesk-ec23b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528402663021:android:d1b04269ba8cf9d0156164",
+        "android_client_info": {
+          "package_name": "com.example.healthdesk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528402663021-hsvuhqbr3chbvij9ecur866786u5o25t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthdesk",
+            "certificate_hash": "b0a82676b76f6e660b9f0da6bcf0f03229551339"
+          }
+        },
+        {
+          "client_id": "528402663021-4lc1j9o72fsqc9mcus1vgp8rttge8ntg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgUxSDMus-14BL-JsKMU34egEZ2dZSoss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528402663021-4lc1j9o72fsqc9mcus1vgp8rttge8ntg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
