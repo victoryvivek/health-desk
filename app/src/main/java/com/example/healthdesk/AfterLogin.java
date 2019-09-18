@@ -78,7 +78,7 @@ public class AfterLogin extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.profile_icon) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
