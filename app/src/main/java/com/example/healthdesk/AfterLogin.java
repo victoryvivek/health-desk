@@ -80,15 +80,13 @@ public class AfterLogin extends AppCompatActivity
 
         if (id == R.id.profile_icon) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.check_symptoms) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.today_tips) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.about) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.logout) {
 
         }
 
