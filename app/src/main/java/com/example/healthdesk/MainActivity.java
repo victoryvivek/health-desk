@@ -2,6 +2,7 @@ package com.example.healthdesk;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextInputLayout emailTextInputLayout,passwordTextInputLayout;
+
+    private TextInputEditText emailTextInputEditText,passwordTextInputEditText;
     private Button loginButton,registerButton;
     private FirebaseAuth mAuth;
     private ProgressBar loginProgressBar;
@@ -29,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        emailTextInputLayout=(TextInputLayout)findViewById(R.id.email_login_textinputlayout);
-        passwordTextInputLayout=(TextInputLayout)findViewById(R.id.password_login_textinputlayout);
+        emailTextInputEditText=(TextInputEditText) findViewById(R.id.email_login_textInputEditText);
+        passwordTextInputEditText=(TextInputEditText) findViewById(R.id.password_login_textInputEditText);
         loginButton=(Button)findViewById(R.id.login_login_button);
         registerButton=(Button)findViewById(R.id.register_login_button);
         loginProgressBar=(ProgressBar)findViewById(R.id.login_progressBar);
@@ -64,28 +66,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean validateEmail(){
-        String emailInput=emailTextInputLayout.getEditText().getText().toString().trim();
+        String emailInput=emailTextInputEditText.getText().toString().trim();
         if(emailInput.isEmpty()){
-            emailTextInputLayout.setError("Field can't be empty");
+            emailTextInputEditText.setError("Field can't be empty");
             return false;
         }else{
-            emailTextInputLayout.setError(null);
+            emailTextInputEditText.setError(null);
             return true;
         }
     }
     private boolean validatePassword(){
-        String passwordInput=passwordTextInputLayout.getEditText().getText().toString().trim();
+        String passwordInput=passwordTextInputEditText.getText().toString().trim();
         if(passwordInput.isEmpty()){
-            passwordTextInputLayout.setError("Field can't be empty");
+            passwordTextInputEditText.setError("Field can't be empty");
             return false;
         }else{
-            passwordTextInputLayout.setError(null);
+            passwordTextInputEditText.setError(null);
             return true;
         }
     }
     private void validateUser(){
-        String emailInput=emailTextInputLayout.getEditText().getText().toString().trim();
-        String passwordInput=passwordTextInputLayout.getEditText().getText().toString().trim();
+        String emailInput=emailTextInputEditText.getText().toString().trim();
+        String passwordInput=passwordTextInputEditText.getText().toString().trim();
         loginProgressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
