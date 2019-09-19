@@ -1,5 +1,6 @@
 package com.example.healthdesk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class AfterLogin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,7 +90,10 @@ public class AfterLogin extends AppCompatActivity
         } else if (id == R.id.about) {
 
         } else if (id == R.id.logout) {
-
+            FirebaseAuth.getInstance().signOut();
+            Intent loginIntent=new Intent(AfterLogin.this,MainActivity.class);
+            startActivity(loginIntent);
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

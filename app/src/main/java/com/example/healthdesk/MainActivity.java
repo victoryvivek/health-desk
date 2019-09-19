@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout emailTextInputLayout,passwordTextInputLayout;
     private Button loginButton,registerButton;
     private FirebaseAuth mAuth;
+    private ProgressBar loginProgressBar;
 
 
     @Override
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         passwordTextInputLayout=(TextInputLayout)findViewById(R.id.password_login_textinputlayout);
         loginButton=(Button)findViewById(R.id.login_login_button);
         registerButton=(Button)findViewById(R.id.register_login_button);
+        loginProgressBar=(ProgressBar)findViewById(R.id.login_progressBar);
 
         mAuth=FirebaseAuth.getInstance();
 
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,RegisterActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -82,12 +86,13 @@ public class MainActivity extends AppCompatActivity {
     private void validateUser(){
         String emailInput=emailTextInputLayout.getEditText().getText().toString().trim();
         String passwordInput=passwordTextInputLayout.getEditText().getText().toString().trim();
-
+        loginProgressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser currenUser=mAuth.getCurrentUser();
+                    loginProgressBar.setVisibility(View.INVISIBLE);
                     updateUI(currenUser);
                 }else{
                     Toast.makeText(MainActivity.this, "Incorrect Username or Password", Toast.LENGTH_SHORT).show();
